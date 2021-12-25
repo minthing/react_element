@@ -7,14 +7,23 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+  </div>
   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <script>
-    const root = document.getElementById("root")
-    const span = React.createElement("span", {id:"first", style:{color:"red"}}, "hello world");
-    console.log(span);
-    ReactDOM.render(span, root);
+    const root = document.getElementById("root") // find root
+    const span = React.createElement("h3", {id:"first", style:{color:"red"}}, "hello world"); 
+    const button = React.createElement("button", {
+      onClick: ()=>{
+        console.log("clicked")
+      },
+      style:{
+        backgroundColor:"red"
+      }
+    }, "Click me");
+    const div = React.createElement("div", null, [span, button])
+    ReactDOM.render(div, root); // render span into root
   </script>
 </body>
 </html>
