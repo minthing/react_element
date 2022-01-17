@@ -14,25 +14,25 @@
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root") // find root
-    const Title = () => (<h3 id="title" onMouseEnter={() => console.log("hello")}>Hello World</h3>);
-    const Button = () => (<button style={{backgroundColor:"red"}} onClick={()=>{console.log("clicked")}}>Click me</button>)
-    // const span = React.createElement("h3", {id:"first",
-    //     onMouseEnter: ()=>{
-    //     console.log("hello!")
-    //   }, style:{color:"red"}}, "hello world"); 
-    // const button = React.createElement("button", {
-    //   onClick: ()=>{
-    //     console.log("clicked")
-    //   },
-    //   style:{
-    //     backgroundColor:"red"
-    //   }
-    // }, "Click me");
-    const Container = <div>
-    <Title />
-    <Button />
-    </div>;
-    ReactDOM.render(Container, root); // render span into root
+    let count = 0;
+    function countUp(){
+      count = count + 1
+      render();
+    }
+    function render(){
+      ReactDOM.render(<App/>, root);
+    }
+    function App() {
+      const [counter, setCounter] = React.useState(0);
+      console.log(data)
+      return (
+        <div>
+          <h3>Total Clicks:{count}</h3>
+          <button onClick={countUp}>Click me</button>
+        </div>
+      )
+    }
+  render();
   </script>
 </body>
 </html>
